@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import Pokedex from './Pokedex';
-import './App.css';
+import Pokecard from './Pokecard';
+// import './App.css';
+import './Pokemon.css';
 
 class App extends Component {
   state = {
@@ -25,8 +27,9 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <h1>pokedex</h1>
-        <Pokedex pokemons={this.state.pokemons} />
+        <h1>Pokedex</h1>
+        {/* <Pokedex pokemons={this.state.pokemons} /> */}
+        <Pokecard />
       </div>
     );
   }

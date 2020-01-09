@@ -11,15 +11,13 @@ const Pokedex = ({ pokemons }) => {
           return (
             <div class="column">
               <div key={pokemon.id} class="card">
+                <h3>{pokemon.name}</h3>
                 <img src={url} alt="pokiface" />
-                <h3>Name:{pokemon.name}</h3>
-                <h4>
-                  ID:{pokemon.id.toString().padStart(3, '0')}
-                  <br />
+                <h5>
                   Type:{pokemon.type}
                   <br />
                   Exp:{pokemon.base_experience}
-                </h4>
+                </h5>
               </div>
             </div>
           );
