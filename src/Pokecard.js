@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import Pokedex from './Pokedex';
+import Pokedex from './Pokedex';
 // import { fireEvent } from '@testing-library/react';
 
 class Pokecard extends Component {
@@ -17,19 +17,25 @@ class Pokecard extends Component {
   };
   render() {
     let hand1 = [];
-    let hand2 = [...this.props.pokemon];
-    // while (hand1.length < hand2.length) {
-    //   let randIndex = Math.floor(Math.random() * hand2.length);
-    //   let randPokemon = hand2.splice(randIndex, 1)[0];
-    //   hand1.push(randPokemon);
-    // }
-    console.log(hand1);
-    console.log(hand1.length);
-    console.log(hand2.length);
-    console.log(hand2);
+    let hand2 = [...this.props.pokemons];
+    while (hand1.length < hand2.length) {
+      let randIndex = Math.floor(Math.random() * hand2.length);
+      let randPokemon = hand2.splice(randIndex, 1)[0];
+      hand1.push(randPokemon);
+    }
+    // console.log(hand1);
+    // console.log('B' + hand1.length);
+    // console.log('C' + hand2.length);
+    // console.log(hand2);
+    let exp1 = hand1.reduce((exp, pokemons) => exp + pokemons.base_experience, 0);
+    let exp2 = hand2.reduce((exp, pokemons) => exp + pokemons.base_experience, 0);
+    // console.log('exp1-' + exp1);
+    // console.log('exp2-' + exp2);
+
     return (
       <div>
-        <h1>Yoo</h1>
+        <Pokedex pokemons={hand1} exp={exp1} isWinner={exp1 > exp2 ? 'WINNER' : 'LOOSER'} />
+        <Pokedex pokemons={hand2} exp={exp2} isWinner={exp2 > exp1 ? 'WINNER' : 'LOOSER'} />
       </div>
     );
   }

@@ -1,8 +1,11 @@
 import React from 'react';
 
-const Pokedex = ({ pokemons }) => {
+const Pokedex = ({ pokemons, exp, isWinner }) => {
   return (
     <div className="poke-list">
+      <h1>Pokemons</h1>
+      <p>Total Exp={exp}</p>
+      <h2>{isWinner}</h2>
       <div class="row">
         {pokemons.map(pokemon => {
           let url = `https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${pokemon.id
